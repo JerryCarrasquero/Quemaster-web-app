@@ -1,0 +1,9 @@
+  <div class="card-group ">
+    <div class="card text-white bg-dark text-center border-light" style="max-width: 18rem;" *ngFor="let informe of informes">
+      <div class="card-header">{{informe.channelname}}</div>
+      <div class="card-body">
+        <h1 class="card-title numbertext" >{{informe.place}}</h1>
+      </div>
+      <div class="card-footer">{{informe.computer}}</div>
+    </div>
+  </div>

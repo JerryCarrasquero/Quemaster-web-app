@@ -1,0 +1,53 @@
+<div class="container">
+  <div >
+  <div class="login-form">
+    <div class="main-div">
+      <div class="panel">
+      <p>Por favor llene la siguiente forma</p>
+      </div>
+      <form id="register" [formGroup]="RegisterForm" (ngSubmit)="register()">
+          <div class="alert alert-danger"  *ngIf="error" role="alert">
+              {{error}}
+          </div>
+        <div class="form-group">
+            <input type="username"  autocomplete="off" class="form-control" formControlName="username"  id="username" placeholder="Usuario">
+            <div class="alert alert-danger"  *ngIf="!RegisterForm.controls.username.valid && RegisterForm.controls.username.dirty" role="alert">
+                Usuario debe medir de 8 a 15 caracteres y no usar caracteres especiales a exepcion de "_" y "-".
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" formControlName="password"  id="inputPassword" placeholder="Contraseña">
+            <div class="alert alert-danger"  *ngIf="!RegisterForm.controls.password.valid && RegisterForm.controls.password.dirty" role="alert">
+                La contraseña debe de medir de 8 a 15 caracteres y no tener caracteres especiales.
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" formControlName="repassword"  id="repassword" placeholder="Re-escriba su contraseña">
+            <div class="alert alert-danger"   *ngIf="(!RegisterForm.controls.repassword.valid && RegisterForm.controls.repassword.dirty)||(RegisterForm.controls.repassword.errors?.MatchPassword && RegisterForm.controls.repassword.dirty)" role="alert">
+                <div *ngIf="!RegisterForm.controls.repassword.valid && RegisterForm.controls.repassword.dirty" >
+                    La contraseña debe de medir de 8 a 15 caracteres y no tener caracteres especiales.<br>
+                </div>
+                <div *ngIf="RegisterForm.controls.repassword.errors?.MatchPassword && RegisterForm.controls.repassword.dirty" >
+                    Las contraseñas deben de ser iguales.
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <input type="EMAIL" class="form-control"  autocomplete="off" formControlName="email"  id="email" placeholder="Email">
+            <div class="alert alert-danger"  *ngIf="!RegisterForm.controls.email.valid && RegisterForm.controls.email.dirty" role="alert">
+              ¡Se requiere un email valido!
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="name" class="form-control" formControlName="name"  autocomplete="off" id="name" placeholder="Full Name">
+        </div>
+        <button type="submit" [disabled]="!RegisterForm.valid" class="btn btn-primary" >Registrar</button>
+      </form>
+      <div class="forgot">
+        <a (click)="logins()"   >Ya tiene una cuenta?</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

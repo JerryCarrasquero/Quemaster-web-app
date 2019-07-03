@@ -1,0 +1,9 @@
+h1{font-size:64px;}
+.numbertext{
+    font-family: 'Digital-7';
+}
+
+@font-face {
+    font-family: 'Digital-7'; /*a name to be used later*/
+    src: url('/src/assets/font/digital-7.ttf'); /*URL to font*/   
+}

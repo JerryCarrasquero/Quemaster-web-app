@@ -1,0 +1,17 @@
+.vertical-center {
+    min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+    min-height: 100vh; /* These two lines are counted as one :-)       */
+  
+    display: flex;
+    align-items: center;
+  }
+.a {
+    text-align: center;
+}  
+
+.gohome {
+    color: #777777;
+    font-size: 14px;
+    text-decoration: underline;
+    cursor: pointer;
+}

@@ -1,0 +1,58 @@
+<ngx-spinner
+bdColor = "rgba(51, 51, 51, 0.8)"
+size = "large"
+color = "#fff"
+type = "ball-clip-rotate"
+></ngx-spinner>
+<div class="container">
+  <div class="calendario">
+  <div class="row">
+    <div class="offset-4 col-3">
+      <input type="text"
+      placeholder="Fechas a buscar"
+      class="form-control"
+      bsDaterangepicker
+      [(ngModel)]="bsRangeValue"
+      [bsConfig]="{ dateInputFormat: 'DD/MM-YYYY', containerClass: 'theme-red' }">
+    </div>
+    <div class="col-3">
+      <button type="submit" class="btn btn-danger"   (click)="pickdates()"> Buscar</button>
+    </div>
+  </div>
+  <div class="alert alert-danger"  *ngIf="message" role="alert">
+    {{message}}
+  </div>
+</div>
+<div class="contenido" style="padding-top: 20px">
+  <div *ngIf="code==200||code==206">
+    <div class="card border-dark mb-3" style="max-width: 100rem;">
+        <div class="card-header"><h5>Reporte general</h5></div>
+        <div class="card-body text-dark">
+            <p>La caja mas rapida fue <b>{{fastbox}}</b> mientras estaba siendo operada por <b>{{fastest}}</b> en un tiempo de <b>{{fastime}}</b> milisegundos </p>
+            <hr>
+            <p>La caja mas rapida fue <b>{{slowbox}}</b> mientras estaba siendo operada por <b>{{slowest}}</b> en un tiempo de <b>{{slowtime}}</b> milisegundos </p>
+            <hr>
+            <p>Numero de personas que abandonaron la linea: <b>{{abandono}}</b></p>
+            <hr>
+            <p>Numero de personas que fueron atendidas: <b>{{atendido}}</b></p>
+            <hr>
+            <p>Numero de personas que abandonaron por otras razones: <b>{{sintiempo}}</b></p>
+            <hr>
+            <p>Numero de personas que no llegaron a caja: <b>{{skipped}}</b></p>
+            <hr>
+            <p>Numero total de personas que pidieron un ticket <b>{{total}}</b></p>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="code==200">
+      <div class="card border-dark mb-3" style="max-width: 100rem;">
+        <div class="card-header"><h5>Reporte de Colas</h5></div>
+        <div class="card-body text-dark">
+          <p>Numero promedio de personas en cola <b>{{clientes}}</b></p>
+          <hr>
+          <P>Tiempo promedio de personas en cola <b>{{tiempoensistema}}</b> minutos</P>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
