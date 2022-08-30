@@ -36,7 +36,7 @@
     "popper.js": "^1.14.4",
     "rxjs": "^6.0.0",
     "tempusdominus-bootstrap-4": "^5.1.2",
-    "tempusdominus-core": "^5.0.3",
+    "tempusdominus-core": "^5.19.3",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
